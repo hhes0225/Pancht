@@ -1,0 +1,213 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|c:\\users\\asus\\source\\repos\\apiaccountserver\\apiaccountserver\\errorcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\errorcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\dbconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\dbconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\service\\iregisterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\service\\iregisterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\service\\registerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\service\\registerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\models\\dto\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\models\\dto\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\models\\dao\\accountdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\models\\dao\\accountdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\controllers\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\controllers\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\repository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\repository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\apiaccountserver\\test.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{C8221085-B93B-40EF-BB91-618C394F792C}|ApiAccountServer\\ApiAccountServer.csproj|solutionrelative:apiaccountserver\\test.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 252,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DbConfig.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\DbConfig.cs",
+              "RelativeDocumentMoniker": "ApiAccountServer\\DbConfig.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\DbConfig.cs",
+              "RelativeToolTip": "ApiAccountServer\\DbConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T19:06:54.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Repository\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "ApiAccountServer\\Repository\\IAccountRepository.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Repository\\IAccountRepository.cs",
+              "RelativeToolTip": "ApiAccountServer\\Repository\\IAccountRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T18:24:12.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IRegisterService.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Service\\IRegisterService.cs",
+              "RelativeDocumentMoniker": "ApiAccountServer\\Service\\IRegisterService.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Service\\IRegisterService.cs",
+              "RelativeToolTip": "ApiAccountServer\\Service\\IRegisterService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T18:21:09.303Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Register.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Models\\DTO\\Register.cs",
+              "RelativeDocumentMoniker": "ApiAccountServer\\Models\\DTO\\Register.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Models\\DTO\\Register.cs",
+              "RelativeToolTip": "ApiAccountServer\\Models\\DTO\\Register.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAkwB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T17:06:24.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "test.http",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\test.http",
+              "RelativeDocumentMoniker": "ApiAccountServer\\test.http",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\test.http",
+              "RelativeToolTip": "ApiAccountServer\\test.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA8AAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-08-25T18:43:28.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RegisterService.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Service\\RegisterService.cs",
+              "RelativeDocumentMoniker": "ApiAccountServer\\Service\\RegisterService.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Service\\RegisterService.cs",
+              "RelativeToolTip": "ApiAccountServer\\Service\\RegisterService.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAQwFMAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T18:20:58.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Repository\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "ApiAccountServer\\Repository\\AccountRepository.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Repository\\AccountRepository.cs",
+              "RelativeToolTip": "ApiAccountServer\\Repository\\AccountRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T17:01:32.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AccountDb.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Models\\DAO\\AccountDb.cs",
+              "RelativeDocumentMoniker": "ApiAccountServer\\Models\\DAO\\AccountDb.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Models\\DAO\\AccountDb.cs",
+              "RelativeToolTip": "ApiAccountServer\\Models\\DAO\\AccountDb.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T16:30:38.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RegisterController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Controllers\\RegisterController.cs",
+              "RelativeDocumentMoniker": "ApiAccountServer\\Controllers\\RegisterController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Controllers\\RegisterController.cs",
+              "RelativeToolTip": "ApiAccountServer\\Controllers\\RegisterController.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAowCQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-24T18:37:34.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ErrorCode.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\ErrorCode.cs",
+              "RelativeDocumentMoniker": "ApiAccountServer\\ErrorCode.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\ErrorCode.cs",
+              "RelativeToolTip": "ApiAccountServer\\ErrorCode.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-24T18:39:37.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\appsettings.json",
+              "RelativeDocumentMoniker": "ApiAccountServer\\appsettings.json",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\appsettings.json",
+              "RelativeToolTip": "ApiAccountServer\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-24T18:21:19.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Program.cs",
+              "RelativeDocumentMoniker": "ApiAccountServer\\Program.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ApiAccountServer\\ApiAccountServer\\Program.cs",
+              "RelativeToolTip": "ApiAccountServer\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-24T18:19:21.226Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+POST http://localhost:27015/Register
+Content-Type: application/json
+
+{
+    "Id": "test123@naver.com",
+    "Password": "test456",
+    "ConfirmPassword": "test456"
+}
+
+
+# POST http://localhost:27015/Login
+# Content-Type: application/json
+# {
+#     "Id": "test123@naver.com",
+#     "Password": "test456"
+# }
