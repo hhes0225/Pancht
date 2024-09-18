@@ -1,0 +1,29 @@
+#계정서버용 테스트
+
+#POST http://localhost:27015/Register
+# Content-Type: application/json
+
+# {
+#     "Id": "test1234@naver.com",
+#     "Password": "test456",
+#     "ConfirmPassword": "test456"
+# }
+
+
+# POST http://localhost:27015/Login
+# Content-Type: application/json
+
+# {
+#     "Id": "test1234@naver.com",
+#     "Password": "test456"
+# }
+
+#게임서버용 테스트
+
+POST http://localhost:27030/Login
+Content-Type: application/json
+
+{
+    "Id": "test1234@naver.com",
+    "AuthToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxMjM0QG5hdmVyLmNvbSIsIm5iZiI6MTcyNjA4MTEzNiwiZXhwIjoxNzI2MTAyNzM2LCJpYXQiOjE3MjYwODExMzZ9.BvPsDufOj4iYvtqQKrFrHSfs6K-WTeiJwUnoCL8aZ-k"
+}
