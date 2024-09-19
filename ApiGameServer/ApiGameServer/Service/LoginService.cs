@@ -8,10 +8,10 @@ public class LoginService:ILoginService
 {
     private readonly ILogger<LoginService> _logger;
     private readonly string _apiServerAddress;
-    private readonly IUserDataDb _userDataDb;
+    private readonly IPanchtDb _userDataDb;
     private readonly IMemoryDb _memoryDb;
 
-    public LoginService(ILogger<LoginService> logger, IConfiguration configuration, IUserDataDb userDataDb, IMemoryDb memoryDb)
+    public LoginService(ILogger<LoginService> logger, IConfiguration configuration, IPanchtDb userDataDb, IMemoryDb memoryDb)
     {
         _logger = logger;
         _apiServerAddress = configuration["AccountServerUrl"];
@@ -39,6 +39,30 @@ public class LoginService:ILoginService
 
             if (response.Result != ErrorCode.None)
             {
+                //유저 데이터 생성 및 로드 영역
+                var userData = await _userDataDb.GetUserDataAsync(request.Id);
+
+                if (userData.Item2 == null)
+                {
+                    response.Result = ErrorCode.GameDataNotExist;
+                    return response;
+                }
+
+
+                _logger.LogInformation($"Successfully authenticated user {userData.Item2.id}");
+
+                //redis - id, 토큰 저장
+                var authSetResult = await _memoryDb.SetAccessTokenAsync(request.Id, request.AuthToken);
+
+                if (authSetResult != ErrorCode.None)
+                {
+                    response.Result = authSetResult;
+                    return response;
+                }
+
+                response.Result = ErrorCode.None;
+                response.UserGameData = userData.Item2;
+
                 return response;
             }
         }
@@ -65,6 +89,4 @@ public class LoginService:ILoginService
 
         return accountServerResponse;
     }
-
-    //유저 데이터 로드
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ApiGameServer.Models.DAO;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApiGameServer.Models.DTO;
 
@@ -19,6 +20,7 @@ public class LoginResponse
 {
     [Required]
     public ErrorCode Result { get; set; } = ErrorCode.None;
+    public UserData UserGameData { get; set; } = new UserData();
 }
 
 
