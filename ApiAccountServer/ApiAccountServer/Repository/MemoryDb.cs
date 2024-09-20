@@ -61,18 +61,16 @@ public class MemoryDb: IMemoryDb
             RedisString<RedisDbData> redis = new RedisString<RedisDbData>(_redisConn, id, null);
             RedisResult<RedisDbData> userAuthData = await redis.GetAsync();
 
-            if (userAuthData.HasValue)
+            if (!userAuthData.HasValue)
             {
+                _logger.LogError("userAuthData is null");
                 return ErrorCode.AuthTokenInfoNotExist;
             }
 
-            if(userAuthData.Value.Id != id)
+            if(userAuthData.Value.Id != id|| userAuthData.Value.AuthToken != authToken)
             {
+                _logger.LogError("AuthTokenIdNotMatch");
                 return ErrorCode.AuthTokenIdNotMatch;
-            }
-            if (userAuthData.Value.AuthToken != authToken)
-            {
-                return ErrorCode.AuthTokenTokenNotMatch ;
             }
 
         }

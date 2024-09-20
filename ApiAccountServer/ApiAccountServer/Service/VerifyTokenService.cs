@@ -18,13 +18,15 @@ public class VerifyTokenService:IVerifyTokenService
     //Redis에서 토큰 검증
     public async Task<VerifyTokenResponse> VerifyTokenAsync(VerifyTokenRequest request)
     {
-        var result = await _memoryRepository.GetAccessToken(request.Id, request.AuthToken);
+        var result = await _memoryRepository.GetAccessToken(request.Id, request.AuthToken);  
 
         if (result != ErrorCode.None)
         {
+            _logger.LogError($"result: {result}");
             return new VerifyTokenResponse { Result = result };
         }
 
+        _logger.LogInformation($"AccountServer Login Success");
         return new VerifyTokenResponse { Result = result };
 
     }

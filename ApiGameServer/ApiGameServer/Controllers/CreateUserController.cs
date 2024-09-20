@@ -1,37 +1,30 @@
 ﻿using ApiGameServer.Models.DTO;
-using ApiGameServer.Repository;
+using ApiGameServer.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiGameServer.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class CreateUserController:ControllerBase
 {
     readonly ILogger<CreateUserController> _logger;
-    readonly IPanchtDb _userDataDb;
-    readonly IMemoryDb _memoryDb;
+    readonly ICreateUserService _service;
 
-    public CreateUserController(ILogger<CreateUserController> logger, IPanchtDb userDataDb, IMemoryDb memoryDb)
+    public CreateUserController(ILogger<CreateUserController> logger, ICreateUserService createUserService)
     {
         _logger = logger;
-        _userDataDb = userDataDb;
-        _memoryDb = memoryDb;
+        _service = createUserService;
     }
 
     [HttpPost]
     public async Task<CreateUserResponse> CreateUserAsync(CreateUserRequest request)
     {
         var response = new CreateUserResponse();
-        //var (errorCode, userData) = await _userDataDb.CreateUserDataAsync(request.Id, request.Nickname);
 
-        //if (errorCode != ErrorCode.None)
-        //{
-        //    response.Result = errorCode;
-        //    return response;
-        //}
+        //CreateUserService를 통해 유저 생성 요청
+        response = await _service.CreateUserAsync(request);
 
-        //response.UserGameData = userData;
         return response;
     }
 }

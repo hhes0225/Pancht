@@ -42,9 +42,6 @@ public class PanchtDb:IPanchtDb
 
         try
         {
-            //db 상에서 unrank의 tier_id 값 가져오기
-            var tierId = await _queryFactory.Query("Tier").Select("tier_id").Where("max_score", newUser.tier_id).FirstAsync<int>();
-            newUser.tier_id = tierId;
 
             var result = await _queryFactory.Query("UserData").InsertAsync(newUser);
 

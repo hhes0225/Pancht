@@ -1,10 +1,10 @@
 #계정서버용 테스트
 
-#POST http://localhost:27015/Register
+# POST http://localhost:27015/Register
 # Content-Type: application/json
 
 # {
-#     "Id": "test1234@naver.com",
+#     "Id": "test456@naver.com",
 #     "Password": "test456",
 #     "ConfirmPassword": "test456"
 # }
@@ -20,10 +20,19 @@
 
 #게임서버용 테스트
 
-POST http://localhost:27030/Login
-Content-Type: application/json
+# post http://localhost:27030/login
+# content-type: application/json
+
+# {
+#     "id": "test123@naver.com",
+#     "authtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxMjNAbmF2ZXIuY29tIiwibmJmIjoxNzI2ODYyMTk4LCJleHAiOjE3MjY4ODM3OTgsImlhdCI6MTcyNjg2MjE5OH0.G4GymhwBwqjP2r5UW1YqIq1Zp1XmyWYJDnuB6JT-uYo"
+# }
+
+post http://localhost:27030/CreateUser
+content-type: application/json
 
 {
-    "Id": "test1234@naver.com",
-    "AuthToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxMjM0QG5hdmVyLmNvbSIsIm5iZiI6MTcyNjA4MTEzNiwiZXhwIjoxNzI2MTAyNzM2LCJpYXQiOjE3MjYwODExMzZ9.BvPsDufOj4iYvtqQKrFrHSfs6K-WTeiJwUnoCL8aZ-k"
+    "Id": "test123@naver.com",
+    "Nickname": "test1234",
+    "Authtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxMjNAbmF2ZXIuY29tIiwibmJmIjoxNzI2ODYyMTk4LCJleHAiOjE3MjY4ODM3OTgsImlhdCI6MTcyNjg2MjE5OH0.G4GymhwBwqjP2r5UW1YqIq1Zp1XmyWYJDnuB6JT-uYo"
 }

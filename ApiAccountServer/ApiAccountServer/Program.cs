@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Service DI 등록
 builder.Services.AddScoped<IRegisterService, RegisterService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<IVerifyTokenService, VerifyTokenService>();
 builder.Services.AddScoped<IPasswordHasher<object>, PasswordHasher<object>>();
 
 //Repository DI 등록

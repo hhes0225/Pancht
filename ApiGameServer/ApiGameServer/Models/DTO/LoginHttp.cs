@@ -23,4 +23,9 @@ public class LoginResponse
     public UserData UserGameData { get; set; } = new UserData();
 }
 
+public class AccountVerificationResponse
+{
+    public ErrorCode Result { get; set; } = ErrorCode.None;
+}
+
 
