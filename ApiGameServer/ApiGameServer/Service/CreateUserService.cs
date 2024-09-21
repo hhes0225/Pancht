@@ -1,5 +1,6 @@
 ﻿using ApiGameServer.Models.DTO;
 using ApiGameServer.Repository;
+using ApiGameServer.Service.Interfaces;
 namespace ApiGameServer.Service;
 
 public class CreateUserService:ICreateUserService
@@ -31,7 +32,7 @@ public class CreateUserService:ICreateUserService
             return createUserResponse;
         }
 
-        //닉네임 중복 체크한다
+        //닉네임 중복 체크한다 
         //db에 해당 닉네임 조회
         if (await _panchtDb.CheckNicknameExist(request.Nickname))
         {

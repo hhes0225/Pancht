@@ -1,4 +1,5 @@
 ﻿using ApiGameServer.Models.DTO;
+using ApiGameServer.Service.Interfaces;
 using System.Text.Json;
 
 namespace ApiGameServer.Service;

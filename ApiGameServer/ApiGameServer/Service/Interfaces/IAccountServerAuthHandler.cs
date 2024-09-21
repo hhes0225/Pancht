@@ -1,4 +1,4 @@
-﻿namespace ApiGameServer.Service;
+﻿namespace ApiGameServer.Service.Interfaces;
 
 public interface IAccountServerAuthHandler
 {

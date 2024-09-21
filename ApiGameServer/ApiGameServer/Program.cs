@@ -1,6 +1,8 @@
 using ApiGameServer;
+using ApiGameServer.Middleware;
 using ApiGameServer.Repository;
 using ApiGameServer.Service;
+using ApiGameServer.Service.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<ICreateUserService, CreateUserService>();
 builder.Services.AddScoped<IAccountServerAuthHandler, AccountServerAuthHandler>();
+builder.Services.AddScoped<IProfileService, ProfileService>();
 
 //Repository DI(등록)
 builder.Services.AddScoped<IPanchtDb, PanchtDb>();
@@ -25,6 +28,7 @@ builder.Services.Configure<DbConfig>(configuration.GetSection("DbConfig"));
 var app = builder.Build();
 
 //미들웨어 등록
+app.UseMiddleware<CheckAuthMiddleware>();
 
 //라우팅 방식 지정 - 컨트롤러에 따른다
 app.MapControllers();

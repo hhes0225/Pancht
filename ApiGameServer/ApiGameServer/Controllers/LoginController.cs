@@ -1,5 +1,5 @@
 ﻿using ApiGameServer.Models.DTO;
-using ApiGameServer.Service;
+using ApiGameServer.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiGameServer.Controllers;

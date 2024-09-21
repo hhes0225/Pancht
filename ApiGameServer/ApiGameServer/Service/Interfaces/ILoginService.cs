@@ -1,7 +1,7 @@
 ﻿using ApiGameServer.Models.DAO;
 using ApiGameServer.Models.DTO;
 
-namespace ApiGameServer.Service;
+namespace ApiGameServer.Service.Interfaces;
 
 public interface ILoginService
 {

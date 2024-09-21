@@ -61,7 +61,7 @@ public class MemoryDb:IMemoryDb
             RedisString<RedisDbData> redis = new RedisString<RedisDbData>(_redisConn, id, null);
             RedisResult<RedisDbData> userAuthData = await redis.GetAsync();
 
-            if (userAuthData.HasValue)
+            if (!userAuthData.HasValue)
             {
                 return ErrorCode.GameServerAuthTokenInfoNotExist;
             }

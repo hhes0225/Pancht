@@ -43,7 +43,7 @@ public class LoginService:ILoginService
 
 
 
-        return new LoginResponse { Result = result, Id = request.Id, Token=token};
+        return new LoginResponse { Result = result, Id = request.Id, AuthToken=token};
     }
 
 }
