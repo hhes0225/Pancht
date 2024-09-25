@@ -5,9 +5,9 @@
   
 |종류|라이브러리|
 |------|------|
-|Framework|ASP.NET Core 8.0|
-|Database|MySqlConnector, SqlKata|
-|Redis|CloudStructures|
+|Framework|`ASP.NET Core 8.0`|
+|Database|`MySqlConnector`, `SqlKata`|
+|Redis|`CloudStructures`|
 
 ---
 # 로그인 Sequence Diagram
