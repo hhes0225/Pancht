@@ -34,11 +34,13 @@ public enum ErrorCode:UInt16
     //Game Server 측 Login Error 처리: 6000~
     LoginFailAccountConnectionException = 6001,
 
-    //Game Data Error 처리: 7000~
+    //Game SQL Error 처리: 7000~
     GameDataCreateFailException = 7001,
-    GameDataLoadFleException = 7002,
+    GameDataLoadException = 7002,
     GameCreateFailNicknameExist = 7003,
     GameDataNotExist = 7004,
+    GameCharacterDataNotExist = 7005,
+    GameCharacterDataLoadFail = 7005,
 
     //Game Server Redis Error 처리: 8000~
     GameServerRedisException = 8001,

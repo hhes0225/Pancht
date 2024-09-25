@@ -25,6 +25,7 @@ public class PanchtDb:IPanchtDb
         _queryFactory = new QueryFactory(_dbConnection, _compiler);
     }
 
+    //유저 데이터 생성
     public async Task<(ErrorCode, UserData)> CreateUserDataAsync(string userId, string nickname)
     {
         var newUser = new UserData
@@ -32,7 +33,6 @@ public class PanchtDb:IPanchtDb
             id = userId,
             nickname = nickname,
             create_date = DateTime.Now,
-            tier_id = 10,
             total_games = 0,
             win_count = 0,
             draw_count = 0,
@@ -42,7 +42,6 @@ public class PanchtDb:IPanchtDb
 
         try
         {
-
             var result = await _queryFactory.Query("UserData").InsertAsync(newUser);
 
             if(result == 0)
@@ -59,6 +58,7 @@ public class PanchtDb:IPanchtDb
         return (ErrorCode.None, newUser);
     }
 
+    //유저 데이터 조회
     public async Task<(ErrorCode, UserData)> GetUserDataAsync(string id)
     {
         try
@@ -70,28 +70,27 @@ public class PanchtDb:IPanchtDb
         catch(Exception e)
         {
             _logger.LogError(e, "GetUserDataAsync Error");
-            return (ErrorCode.GameDataLoadFleException, null);
+            return (ErrorCode.GameDataLoadException, null);
         }
     }
 
-    public async Task<int> GetTierIdByTierScore(int tierScore)
+    public async Task<Int64> GetUidById(string id)
     {
-        var tierId = 0;
         try
         {
-            tierId = await _queryFactory.Query("Tier").Select("tier_id").
-                Where("min_score", "<=", tierScore).Where("max_score", ">=", tierScore).FirstAsync<int>();
-        }
-        catch(Exception e)
-        {
-            _logger.LogError(e, "GetTierByTierScore Error");
-            return 0;
-        }
+            var user = await _queryFactory.Query("UserData").Where("id", id).FirstOrDefaultAsync<UserData>();
 
-        return tierId;
+            return user.uid;
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "GetUserDataAsync Error");
+            return -1;
+        }
     }
 
-    public async Task<bool> CheckNicknameExist(string nickname)
+    //닉네임 DB에 존재하는지 확인
+    public async Task<bool> CheckNicknameExistAsync(string nickname)
     {
         try
         {
@@ -109,6 +108,39 @@ public class PanchtDb:IPanchtDb
         }
 
         return false;
+    }
+
+    //유저가 수집한 캐릭터 데이터 조회
+    public async Task<(ErrorCode, List<UserCharacterData>)> GetUserCharacterDataAsync(string id)
+    {
+        try
+        {
+            var uid = await GetUidById(id);
+
+            if(uid == -1)
+            {
+                return (ErrorCode.GameDataLoadException, null);
+            }
+
+            var userCharacterData = await _queryFactory.Query("User_Character").Where("user_id", uid).GetAsync<UserCharacterData>();
+
+            if( userCharacterData == null )
+            {
+                return (ErrorCode.GameCharacterDataLoadFail, null);
+            }
+
+            if (!userCharacterData.Any()) 
+            {
+                return (ErrorCode.GameCharacterDataNotExist, userCharacterData.ToList());
+            }
+
+            return (ErrorCode.None, userCharacterData.ToList());
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "GetUserCharacterDataAsync Error");
+            return (ErrorCode.GameDataLoadException, null);
+        }
     }
 
     private void Open()

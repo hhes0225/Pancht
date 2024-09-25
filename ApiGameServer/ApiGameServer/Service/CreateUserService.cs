@@ -34,7 +34,7 @@ public class CreateUserService:ICreateUserService
 
         //닉네임 중복 체크한다 
         //db에 해당 닉네임 조회
-        if (await _panchtDb.CheckNicknameExist(request.Nickname))
+        if (await _panchtDb.CheckNicknameExistAsync(request.Nickname))
         {
             _logger.LogError("Nickname already exists");
             createUserResponse.Result = ErrorCode.GameCreateFailNicknameExist;

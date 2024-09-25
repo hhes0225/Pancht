@@ -6,6 +6,6 @@ public interface IPanchtDb
 {
     public Task<(ErrorCode, UserData)> CreateUserDataAsync(string userId, string nickname);
     public Task<(ErrorCode, UserData)> GetUserDataAsync(string id);
-    public Task<int> GetTierIdByTierScore(int tierScore);
-    public Task<bool> CheckNicknameExist(string nickname);
+    public Task<bool> CheckNicknameExistAsync(string nickname);
+    public Task<(ErrorCode, List<UserCharacterData>)> GetUserCharacterDataAsync(string userId);
 }

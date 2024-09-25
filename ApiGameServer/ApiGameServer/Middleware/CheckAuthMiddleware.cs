@@ -20,17 +20,17 @@ public class CheckAuthMiddleware
         var url = context.Request.Path.Value;
 
         //로그인 요청, 유저 생성 요청은 인증 체크를 하지 않음
-        if (url=="/Login" || url=="CreateUser")
+        if (url=="/Login" || url=="/CreateUser")
         {
             await _next(context);
         }
         else
         {
             // 모든 헤더 출력
-            foreach (var header in context.Request.Headers)
-            {
-                _logger.LogInformation($"{header.Key}: {header.Value}");
-            }
+            //foreach (var header in context.Request.Headers)
+            //{
+            //    _logger.LogInformation($"{header.Key}: {header.Value}");
+            //}
 
 
             var id = context.Request.Headers["Id"].ToString();
@@ -44,7 +44,7 @@ public class CheckAuthMiddleware
                 return;
             }
 
-            _logger.LogInformation("Success Auth Check");
+            //_logger.LogInformation("Success Auth Check");
             await _next(context);
         }
 
