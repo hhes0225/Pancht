@@ -6,7 +6,7 @@
 
 - 게임 서버와는 물리적으로 별도의 서버이다.
 
-  |종류|라이브러리|
+|종류|라이브러리|
 |------|------|
 |Framework|`ASP.NET Core 8.0`|
 |Database|`MySqlConnector`, `SqlKata`|
