@@ -26,8 +26,49 @@ UI/보드판&주사위 아트: 서수민
 클라이언트 프로그래머: 양서현
 
 ---
-# 디렉토리 설명
-## AccountServer
+# 서버 구조
+
+```mermaid
+graph LR
+    A[계정 관리 서버] -->|인증 완료| B[인게임 서버]
+    B --> |인증 요청| A
+    B -->|게임 매칭 요청| C[게임 매칭 서버]
+    C -->|매칭 완료| D[Yacht 게임 소켓 서버]
+    D --> |게임 종료| B
+    subgraph "계정 관리 서버 사용 DB"
+    A1[계정 DB]
+    A2[인증토큰 캐시 메모리]
+    end
+    subgraph "인게임 서버 사용 DB"
+    B1[인게임 정보 DB]
+    B2[인증토큰 캐시 메모리]
+    end
+    subgraph "게임 매칭 서버 사용 DB"
+    C1[매칭 Redis]
+    end
+    
+    A --> A1
+    A --> A2
+    B --> B1
+    B --> B2
+    C --> C1
+    D --> B1
+    D --> B2
+```
+
+---
+# 폴더 설명
+## ApiAccountServer
+- ASP.NET Core 8.0 으로 제작된 API 서버입니다.
+- 유저 정보를 관리하는 서버입니다.
+- 회원가입, 로그인 등 유저 정보를 저장하는 기능을 하고 있습니다.
+- 계정 서버 폴더
+  
+## ApiPanchtServer
+- ASP.NET Core 8.0 으로 제작된 API 서버입니다.
+- 게임 서버로서, Pancht의 API 기능을 담당하는 서버입니다.
+- Pancht API 서버 폴더
+
 ---
 
 # TODO-LIST
