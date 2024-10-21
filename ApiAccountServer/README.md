@@ -13,7 +13,13 @@
 |Redis|`CloudStructures`|
 
 ---
+# Database 구조
 
+---
+# Database Schema
+
+
+---
 # 회원가입 Sequence Diagram
 
 ```mermaid
