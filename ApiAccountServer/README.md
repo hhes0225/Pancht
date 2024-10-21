@@ -13,11 +13,19 @@
 |Redis|`CloudStructures`|
 
 ---
-# Database 구조
-
----
 # Database Schema
 
+```mermaid
+erDiagram
+    Account {
+        bigint uid PK "auto_increment, not null"
+        varchar id "not null, 유저 이메일, unique"
+        varchar pw "not null, 암호화된 비밀번호"
+        timestamp create_date "not null, default current_timestamp, 계정 생성 일시"
+        timestamp recent_login_date "not null, default current_timestamp, 최근 로그인 일시"
+    }
+
+```
 
 ---
 # 회원가입 Sequence Diagram
