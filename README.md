@@ -64,10 +64,10 @@ graph LR
 - 회원가입, 로그인 등 유저 정보를 저장하는 기능을 하고 있습니다.
 - [계정 서버 폴더](https://github.com/hhes0225/Pancht/tree/main/ApiAccountServer)
   
-## ApiPanchtServer
+## ApiGameServer
 - ASP.NET Core 8.0 으로 제작된 API 서버입니다.
 - 게임 서버로서, Pancht의 API 기능을 담당하는 서버입니다.
-- Pancht API 서버 폴더
+- [Pancht API 서버 폴더](https://github.com/hhes0225/Pancht/tree/main/ApiGameServer)
 
 ---
 
