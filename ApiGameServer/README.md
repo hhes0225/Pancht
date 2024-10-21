@@ -15,27 +15,27 @@
 ```mermaid
 erDiagram
     UserData {
-        bigint uid PK "auto_increment, not null"
-        varchar id "유저 이메일, not null, unique"
-        varchar nickname "닉네임, not null"
-        timestamp create_date "가입 날짜, default current_timestamp, not null"
-        int total_games "총 플레이 횟수, default 0, not null"
-        int win_count "승리 횟수, default 0, not null"
-        int draw_count "비긴 횟수, default 0, not null"
-        int lose_count "패배 횟수, default 0, not null"
-        int tier_score "현재 티어 점수, not null"
+        bigint uid PK
+        varchar id
+        varchar nickname
+        timestamp create_date
+        int total_games
+        int win_count
+        int draw_count
+        int lose_count
+        int tier_score
     }
 
     User_Character {
-        bigint user_id FK "유저 ID, not null"
-        int character_id FK "캐릭터 ID, not null"
-        timestamp collected_date "캐릭터 획득 날짜, default current_timestamp, not null"
+        bigint user_id FK 
+        int character_id FK 
+        timestamp collected_date 
     }
 
     Attendance {
-        bigint user_id FK "유저 ID, not null"
-        timestamp last_attendance_date "마지막 출석일, not null"
-        int consecutive_days "연속 출석 일수, default 0, not null"
+        bigint user_id FK 
+        timestamp last_attendance_date 
+        int consecutive_days 
     }
 
     Mail {
@@ -55,6 +55,54 @@ erDiagram
 ---
 # Database Schema
 
+## UserData
+```mermaid
+erDiagram
+UserData {
+        bigint uid PK "auto_increment, not null"
+        varchar id "not null, unique"
+        varchar nickname "not null"
+        timestamp create_date "가입 날짜, default current_timestamp, not null"
+        int total_games "총 플레이 횟수, default 0, not null"
+        int win_count "승리 횟수, default 0, not null"
+        int draw_count "비긴 횟수, default 0, not null"
+        int lose_count "패배 횟수, default 0, not null"
+        int tier_score "현재 티어 점수, not null"
+    }
+```
+
+## User-Character
+```mermaid
+erDiagram
+ User_Character {
+        bigint user_id PK FK "유저 ID, not null"
+        int character_id "캐릭터 ID, not null"
+        timestamp collected_date "캐릭터 획득 날짜, default current_timestamp, not null"
+    }
+```
+## Attendance
+```mermaid
+erDiagram
+Attendance {
+        bigint user_id PK FK "유저 ID, not null"
+        timestamp last_attendance_date "마지막 출석일, not null"
+        int consecutive_days "연속 출석 일수, default 0, not null"
+    }
+
+```
+
+## Mail
+```mermaid
+erDiagram
+ Mail {
+        bigint mail_id PK "auto_increment, not null"
+        bigint user_id FK "유저 ID, not null"
+        varchar title "메일 제목, not null"
+        text content "메일 내용, not null"
+        timestamp send_date "발송일, default current_timestamp"
+    }
+
+```
 
 ---
 # 로그인 Sequence Diagram
