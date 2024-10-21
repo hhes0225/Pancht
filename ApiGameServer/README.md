@@ -75,7 +75,7 @@ UserData {
 ```mermaid
 erDiagram
  User_Character {
-        bigint user_id PK FK "유저 ID, not null"
+        bigint user_id PK,FK "유저 ID, not null"
         int character_id "캐릭터 ID, not null"
         timestamp collected_date "캐릭터 획득 날짜, default current_timestamp, not null"
     }
@@ -84,7 +84,7 @@ erDiagram
 ```mermaid
 erDiagram
 Attendance {
-        bigint user_id PK FK "유저 ID, not null"
+        bigint user_id PK,FK "유저 ID, not null"
         timestamp last_attendance_date "마지막 출석일, not null"
         int consecutive_days "연속 출석 일수, default 0, not null"
     }
