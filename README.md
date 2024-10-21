@@ -62,7 +62,7 @@ graph LR
 - ASP.NET Core 8.0 으로 제작된 API 서버입니다.
 - 유저 정보를 관리하는 서버입니다.
 - 회원가입, 로그인 등 유저 정보를 저장하는 기능을 하고 있습니다.
-- 계정 서버 폴더
+- 계정 서버 폴더(https://github.com/hhes0225/Pancht/tree/main/ApiAccountServer)
   
 ## ApiPanchtServer
 - ASP.NET Core 8.0 으로 제작된 API 서버입니다.
