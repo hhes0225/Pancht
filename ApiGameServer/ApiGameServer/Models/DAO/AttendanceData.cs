@@ -1,6 +1,6 @@
 ﻿namespace ApiGameServer.Models.DAO;
 
-public class Attendance
+public class AttendanceData
 {
     public Int64 uid { get; set; }
     public DateTime? last_attendance_date { get; set; }

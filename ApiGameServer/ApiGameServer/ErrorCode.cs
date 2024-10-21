@@ -48,4 +48,13 @@ public enum ErrorCode:UInt16
     GameServerAuthTokenInfoNotExist = 8003,
     GameServeAuthTokenIdNotMatch = 8004,
     GameServeAuthTokenNotMatch = 8004,
+
+    //Attendance Error 처리: 9000~
+    AttendanceDataLoadFail = 9001,
+    AttendanceDataCreateFail = 9002,
+    AttendanceDataUpdateFail = 9003,
+    AttendanceDataNotExist = 9004,
+    AttendanceAlreadyDone = 9005,
+    AttendanceDataCreateFailException = 9006,
+    AttendanceDataUpdateFailException = 9007,
 }

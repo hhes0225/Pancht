@@ -13,6 +13,7 @@ builder.Services.AddScoped<ICreateUserService, CreateUserService>();
 builder.Services.AddScoped<IAccountServerAuthHandler, AccountServerAuthHandler>();
 builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddScoped<ICharacterListService, CharacterListService>();
+builder.Services.AddScoped<IAttendanceService, AttendanceService>();
 
 //Repository DI(µî·Ï)
 builder.Services.AddScoped<IPanchtDb, PanchtDb>();

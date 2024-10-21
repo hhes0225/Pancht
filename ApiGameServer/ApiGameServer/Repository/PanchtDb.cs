@@ -48,6 +48,8 @@ public class PanchtDb:IPanchtDb
             {
                 return (ErrorCode.GameDataCreateFailException, newUser);
             }
+
+
         }
         catch (Exception e)
         {
@@ -56,6 +58,33 @@ public class PanchtDb:IPanchtDb
         }
 
         return (ErrorCode.None, newUser);
+    }
+
+    public async Task<(ErrorCode, AttendanceData)> CreateAttendanceDataAsync(Int64 userId)
+    {
+        var newAttendanceData = new AttendanceData
+        {
+            uid = userId,
+            last_attendance_date = null,
+            attendance_count = 0
+        };
+
+        try
+        {
+            var result = await _queryFactory.Query("AttendanceData").InsertAsync(newAttendanceData);
+
+            if (result == 0)
+            {
+                return (ErrorCode.AttendanceDataCreateFailException, newAttendanceData);
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "CreateAttendanceDataAsync Error");
+            return (ErrorCode.AttendanceDataCreateFailException, newAttendanceData);
+        }
+
+        return (ErrorCode.None, newAttendanceData);
     }
 
     //유저 데이터 조회
@@ -141,6 +170,59 @@ public class PanchtDb:IPanchtDb
             _logger.LogError(e, "GetUserCharacterDataAsync Error");
             return (ErrorCode.GameDataLoadException, null);
         }
+    }
+
+    //출석체크 데이터 조회
+    public async Task<(ErrorCode, AttendanceData)> GetAttendanceDataAsync(string id)
+    {
+        try
+        {
+            var attendanceData = await _queryFactory.Query("AttendanceData").Where("id", id).FirstOrDefaultAsync<AttendanceData>();
+
+            if(attendanceData == null)
+            {
+                attendanceData = new AttendanceData
+                {
+                    uid = 0,
+                    last_attendance_date = null,
+                    attendance_count = 0
+                };
+
+                return (ErrorCode.AttendanceDataNotExist, attendanceData);
+            }
+
+            return (ErrorCode.None, attendanceData);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "GetAttendanceDataAsync Error");
+            return (ErrorCode.AttendanceDataLoadFail, null);
+        }
+    }
+
+    //출석체크 데이터 갱신
+    public async Task<ErrorCode> UpdateAttendanceDataAsync(AttendanceData attendanceData)
+    {
+        try
+        {
+            var result = await _queryFactory.Query("AttendanceData").Where("uid", attendanceData.uid).UpdateAsync(new
+            {
+                last_attendance_date = attendanceData.last_attendance_date,
+                attendance_count = attendanceData.attendance_count
+            });
+
+            if (result == 0)
+            {
+                return ErrorCode.AttendanceDataUpdateFailException;
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "UpdateAttendanceDataAsync Error");
+            return ErrorCode.AttendanceDataUpdateFailException;
+        }
+
+        return ErrorCode.None;
     }
 
     private void Open()
