@@ -12,6 +12,46 @@
 ---
 # Database 구조
 
+```mermaid
+erDiagram
+    UserData {
+        bigint uid PK "auto_increment, not null"
+        varchar id "유저 이메일, not null, unique"
+        varchar nickname "닉네임, not null"
+        timestamp create_date "가입 날짜, default current_timestamp, not null"
+        int total_games "총 플레이 횟수, default 0, not null"
+        int win_count "승리 횟수, default 0, not null"
+        int draw_count "비긴 횟수, default 0, not null"
+        int lose_count "패배 횟수, default 0, not null"
+        int tier_score "현재 티어 점수, not null"
+    }
+
+    User_Character {
+        bigint user_id FK "유저 ID, not null"
+        int character_id FK "캐릭터 ID, not null"
+        timestamp collected_date "캐릭터 획득 날짜, default current_timestamp, not null"
+    }
+
+    Attendance {
+        bigint user_id FK "유저 ID, not null"
+        timestamp last_attendance_date "마지막 출석일, not null"
+        int consecutive_days "연속 출석 일수, default 0, not null"
+    }
+
+    Mail {
+        bigint mail_id PK "auto_increment, not null"
+        bigint user_id FK "유저 ID, not null"
+        varchar title "메일 제목, not null"
+        text content "메일 내용, not null"
+        timestamp send_date "발송일, default current_timestamp"
+    }
+
+    User_Character }o--|| UserData : "contains"
+    Attendance ||--|| UserData : "belongs to"
+    Mail ||--|| UserData : "sent by"
+
+```
+
 ---
 # Database Schema
 
