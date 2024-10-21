@@ -53,7 +53,7 @@ erDiagram
     }
 
     User_Character }o--|| UserData : "contains"
-    Currency }||--|| UserData : "contains"  
+    Currency ||--|| UserData : "contains"  
     Attendance ||--|| UserData : "belongs to"
     Mail ||--|| UserData : "sent by"
 
