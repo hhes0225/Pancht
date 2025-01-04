@@ -7,12 +7,12 @@ namespace ApiGameServer.Service;
 public class AccountServerAuthHandler:IAccountServerAuthHandler
 {
     readonly ILogger<AccountServerAuthHandler> _logger;
-    readonly string _apiServerAddress;
+    readonly string _accountServerAddress;
 
     public AccountServerAuthHandler(ILogger<AccountServerAuthHandler> logger, IConfiguration configuration)
     {
         _logger = logger;
-        _apiServerAddress = configuration["AccountServerUrl"];
+        _accountServerAddress = configuration["AccountServerUrl"];
     }
 
     public async Task<ErrorCode> RequestVerifyToken(string id, string authToken)
@@ -20,7 +20,7 @@ public class AccountServerAuthHandler:IAccountServerAuthHandler
         try
         {
             HttpClient client = new HttpClient();
-            var accountServerResponse = await client.PostAsJsonAsync($"{_apiServerAddress}/VerifyToken", new
+            var accountServerResponse = await client.PostAsJsonAsync($"{_accountServerAddress}/VerifyToken", new
             {
                 Id = id,
                 AuthToken = authToken
