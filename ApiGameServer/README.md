@@ -27,26 +27,33 @@ erDiagram
     }
 
     User_Character {
-        bigint user_id FK 
-        int character_id FK 
+        bigint user_id Pk,FK 
+        int character_id 
         timestamp collected_date 
     }
 
     Attendance {
-        bigint user_id FK 
+        bigint user_id PK,FK 
         timestamp last_attendance_date 
         int consecutive_days 
     }
 
     Mail {
-        bigint mail_id PK "auto_increment, not null"
-        bigint user_id FK "유저 ID, not null"
-        varchar title "메일 제목, not null"
-        text content "메일 내용, not null"
-        timestamp send_date "발송일, default current_timestamp"
+        bigint mail_id PK
+        bigint user_id FK
+        varchar title
+        text content 
+        timestamp send_date 
+    }
+
+    Currency {
+        bigint user_id PK,FK 
+        int gold
+        int Ruby
     }
 
     User_Character }o--|| UserData : "contains"
+    Currency ||--|| UserData : "contains"  
     Attendance ||--|| UserData : "belongs to"
     Mail ||--|| UserData : "sent by"
 
@@ -102,6 +109,16 @@ erDiagram
         timestamp send_date "발송일, default current_timestamp"
     }
 
+```
+
+## Currency
+```mermaid
+erDiagram
+   Currency {
+        bigint user_id PK,FK "auto increment, not null"
+        int gold  "골드 보유량, default 0, not null"
+        int Ruby  "루비 보유량, default 0, not null"
+    }
 ```
 
 ---
