@@ -27,7 +27,7 @@ UI/보드판&주사위 아트: 서수민
 
 ---
 # 서버 구조
-![서버 구조 다이어그램](https://github.com/user-attachments/assets/a3ec1740-a2bc-46c2-922d-5dfbfc27ed40)
+![서버 구조 다이어그램_판추](https://github.com/user-attachments/assets/a39f4a5c-d648-4bc3-a90b-b87872801e42)
 
 
 ```mermaid
