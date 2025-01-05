@@ -75,7 +75,7 @@ graph LR
 - ASP.NET Core 8.0 으로 제작된 API 서버입니다.
 - 대전 게임의 매칭을 담당하는 서버입니다.
 - 매칭 로직(티어 점수 기준)에 따라 유저를 매칭하고, 소켓 서버와 방 주소를 전달합니다.
-- [Pancht Matching 서버 폴더]([https://github.com/hhes0225/Pancht/tree/main/ApiMatchingServer])
+- [Pancht Matching 서버 폴더](https://github.com/hhes0225/Pancht/tree/main/ApiMatchingServer)
 ---
 
 # TODO-LIST
