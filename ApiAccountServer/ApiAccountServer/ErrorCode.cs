@@ -13,22 +13,22 @@ public enum ErrorCode:UInt16
     RegisterFailEmailExist = 2002,
     RegisterFailPasswordNotMatch = 2003,
 
-    //Login Error 처리: 3000~
-    LoginFailException = 3001,
-    LoginFailVerification = 3002,
+    //Account Server 측 Login Error 처리: 2100~
+    LoginFailException = 2101,
+    LoginFailVerification = 2102,
 
-    //인증 토큰 Error 처리: 4000~
-    RedisFailException = 4001,
-    AuthTokenFailException = 4002,
-    AuthTokenRegisterFail = 4003,
-    AuthTokenInfoNotExist = 4004,
-    AuthTokenIdNotMatch = 4005,
-    AuthTokenTokenNotMatch = 4006,
+    //인증 토큰 Error 처리: 2200~
+    RedisFailException = 2201,
+    AuthTokenFailException = 2202,
+    AuthTokenRegisterFail = 2203,
+    AuthTokenInfoNotExist = 2204,
+    AuthTokenIdNotMatch = 2205,
+    AuthTokenTokenNotMatch = 2206,
 
-    
 
-    //Account DB Error 처리: 5000~
-    AccountDbFailException = 5001,
-    AccountDbConnectionFail = 5002
+
+    //Account DB Error 처리: 3000~
+    AccountDbFailException = 3001,
+    AccountDbConnectionFail = 3002,
 
 }
