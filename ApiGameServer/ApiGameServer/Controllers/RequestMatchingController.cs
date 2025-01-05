@@ -17,7 +17,7 @@ public class RequestMatchingController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<MatchingResponse> Matching([FromBody] MatchingRequest request)
+    public async Task<MatchingResponse> Matching([FromBody] MatchingRequestFromClient request)
     {
         MatchingResponse response = new MatchingResponse();
         //MatchingService를 통해 매칭 요청

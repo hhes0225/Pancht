@@ -225,6 +225,25 @@ public class PanchtDb:IPanchtDb
         return ErrorCode.None;
     }
 
+    //매칭을 위한 유저 데이터 조회
+    public async Task<(ErrorCode, int)> GetUserTierScoreAsync(string id)
+    {
+        try
+        {
+            var user = await _queryFactory.Query("UserData").Where("id", id).FirstOrDefaultAsync<UserData>();
+            if (user == null)
+            {
+                return (ErrorCode.GameDataLoadException, 0);
+            }
+            return (ErrorCode.None, user.tier_score);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "GetUserTierScore Error");
+            return (ErrorCode.GameDataLoadException, 0);
+        }
+    }
+
     private void Open()
     {
         _dbConnection = new MySqlConnection(_dbConfig.Value.MySqlPanchtDb);

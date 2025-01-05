@@ -2,10 +2,17 @@
 
 namespace ApiGameServer.Models.DTO;
 
+public class MatchingRequestFromClient
+{
+    [Required]
+    public string Id { get; set; } = string.Empty;
+}
 public class MatchingRequest
 {
     [Required]
     public string Id { get; set; } = string.Empty;
+    [Required]
+    public int TierScore { get; set; } = 0;
 }
 
 public class MatchingResponse
