@@ -15,13 +15,13 @@
 ---
 # 개발자
 
-P.M/서버 프로그래머: 한희선
+PM/서버 프로그래머: 한희선
 
 기획/사운드: 조하경
 
 캐릭터 원화: 최영서
 
-UI/보드판&주사위 아트: 서수민
+UI/보드판&주사위 모델링: 서수민
 
 클라이언트 프로그래머: 양서현
 
@@ -71,6 +71,11 @@ graph LR
 - 게임 서버로서, Pancht의 API 기능을 담당하는 서버입니다.
 - [Pancht API 서버 폴더](https://github.com/hhes0225/Pancht/tree/main/ApiGameServer)
 
+## ApiMatchingServer
+- ASP.NET Core 8.0 으로 제작된 API 서버입니다.
+- 대전 게임의 매칭을 담당하는 서버입니다.
+- 매칭 로직(티어 점수 기준)에 따라 유저를 매칭하고, 소켓 서버와 방 주소를 전달합니다.
+- 
 ---
 
 # TODO-LIST
