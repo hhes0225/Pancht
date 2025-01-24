@@ -18,11 +18,14 @@ public class MatchingService:IMatchingService
     }
 
     //매칭 요청 매칭 서버에 전달
-    public async Task<MatchingResponse> RequestMatchingAsync(MatchingRequest request)
+    public async Task<MatchingResponse> RequestMatchingAsync(MatchingRequestFromClient requestFromClient)
     {
+        var request = new MatchingRequest();
         var response = new MatchingResponse();
         try
         {
+            request.Id = requestFromClient.Id;
+
             //티어 점수 조회 + 티어 점수를 매칭 요청에 추가
             var tierResult = await _panchtDb.GetUserTierScoreAsync(request.Id);
             if (tierResult.Item1 != ErrorCode.None)
@@ -31,7 +34,7 @@ public class MatchingService:IMatchingService
                 response.Result = tierResult.Item1;
                 return response;
             }
-
+            
             request.TierScore = tierResult.Item2;
 
             //매칭 서버로 요청

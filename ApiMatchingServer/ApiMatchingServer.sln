@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatchingAPIServer", "MatchingAPIServer.csproj", "{C4BF4730-21F7-4F00-A236-706420265F0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiMatchingServer", "ApiMatchingServer.csproj", "{C4BF4730-21F7-4F00-A236-706420265F0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

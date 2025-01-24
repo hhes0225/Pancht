@@ -26,5 +26,9 @@
         <Compile Remove="MasterData.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Model\Data\" />
+    </ItemGroup>
+
 
 </Project>
