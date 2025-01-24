@@ -14,6 +14,7 @@ namespace APIServer;
 public interface IMatchWoker : IDisposable
 {
     public void AddUser(string userID);
+    //public void RemoveUser(string userID);
 
     public (bool, CompleteMatchingData) GetCompleteMatching(string userID);
 }
@@ -23,30 +24,26 @@ public class MatchWoker : IMatchWoker
     List<string> _pvpServerAddressList = new();
 
     System.Threading.Thread _reqWorker = null;
-    ConcurrentQueue<string> _reqQueue = new();
-
     System.Threading.Thread _completeWorker = null;
 
-    // key는 유저ID
-    ConcurrentDictionary<string, string> _completeDic = new();
+
+    ConcurrentQueue<string> _reqQueue = new();
+    ConcurrentDictionary<string, string> _completeDic = new();// key는 유저ID
 
     //TODO: 2개의 Pub/Sub을 사용하므로 Redis 객체가 2개 있어야 한다.
     // 매칭서버에서 -> 게임서버, 게임서버 -> 매칭서버로
 
     string _redisAddress = "";
-    string _matchingRedisPubKey = "MatchingReq";
-    string _matchingRedisSubKey = "MatchingReq";
+    string _requestMatchingKey;
+    string _checkMatchingKey;
 
     public RedisConnection RedisConn;
 
     public MatchWoker(IOptions<MatchingConfig> matchingConfig)
     {
         Console.WriteLine("MatchWoker 생성자 호출");
-        
-        _redisAddress = matchingConfig.Value.RedisAddress;
-        _matchingRedisPubKey = matchingConfig.Value.PubKey;
-        _matchingRedisSubKey = matchingConfig.Value.SubKey;
 
+        _redisAddress = matchingConfig.Value.RedisAddress;
 
         //TODO: Redis 연결 및 초기화 한다
         RedisConfig redisConfig = new RedisConfig("default", matchingConfig.Value.RedisAddress);
