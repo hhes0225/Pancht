@@ -81,9 +81,9 @@ graph LR
 | 구간 명           | 최하 티어 | 최상 티어 |
 | -------------- | -------- | -------- |
 | 1구간           | Bronze1  | Bronze1  |
-| 2구간        | Bronze3  | Silver1  |
-| 3구간      | Silver1  | Gold1  |
-| 4구간    | Silver3  | Gold3  |
+| 2구간        | Bronze3  | <span style="background-color:#F5F5F5">Silver1</span>  |
+| 3구간      | <span style="background-color:#F5F5F5">Silver1</span>  | Gold1  |
+| 4구간    | <span style="background-color:#F5F5F5">Silver3 </span> | Gold3  |
 | 5구간    | Gold1  | Gold3  |
 
 ---
