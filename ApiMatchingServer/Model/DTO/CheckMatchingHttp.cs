@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+
+namespace ApiMatchingServer.Models.DTO;
 
 public class CheckMatchingReq
 {

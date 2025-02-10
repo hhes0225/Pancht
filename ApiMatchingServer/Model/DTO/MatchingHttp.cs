@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+
+namespace ApiMatchingServer.Models.DTO;
 
 public class MatchingRequest
 {
@@ -8,5 +11,6 @@ public class MatchingRequest
 
 public class MatchResponse
 {
-	[Required] public ErrorCode Result { get; set; } = ErrorCode.None;
+    [Required]
+    public ErrorCode Result { get; set; } = ErrorCode.None;
 }
