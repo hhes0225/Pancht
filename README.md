@@ -77,7 +77,8 @@ graph LR
 - 매칭 로직(티어 점수 기준)에 따라 유저를 매칭하고, 소켓 서버와 방 주소를 전달합니다.
 - [Pancht Matching 서버 폴더](https://github.com/hhes0225/Pancht/tree/main/ApiMatchingServer)
 - 매칭 로직
-  | 구간 명           | 최하 티어 | 최상 티어 |
+  
+| 구간 명           | 최하 티어 | 최상 티어 |
 | -------------- | -------- | -------- |
 | 매칭           | Bronze1  | Bronze1  |
 | 방 입장        | Bronze3  | Silver1  |
