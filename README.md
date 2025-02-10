@@ -80,11 +80,11 @@ graph LR
   
 | 구간 명           | 최하 티어 | 최상 티어 |
 | -------------- | -------- | -------- |
-| 매칭           | Bronze1  | Bronze1  |
-| 방 입장        | Bronze3  | Silver1  |
-| 게임 로직      | Silver1  | Gold1  |
-| heart-beat    | Silver3  | Gold3  |
-| 방 상태체크    | Gold1  | Gold3  |
+| 1구간           | Bronze1  | Bronze1  |
+| 2구간        | Bronze3  | Silver1  |
+| 3구간      | Silver1  | Gold1  |
+| 4구간    | Silver3  | Gold3  |
+| 5구간    | Gold1  | Gold3  |
 
 ---
 
