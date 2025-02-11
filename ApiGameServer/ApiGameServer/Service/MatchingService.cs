@@ -1,4 +1,5 @@
-﻿using ApiGameServer.Models.DTO;
+﻿using ApiGameServer.Models;
+using ApiGameServer.Models.DTO;
 using ApiGameServer.Repository;
 using ApiGameServer.Service.Interfaces;
 

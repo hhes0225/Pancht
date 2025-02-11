@@ -5,6 +5,7 @@ public class RedisDbData
     public string Id { get; set; } =string.Empty;
     public string AuthToken { get; set; } = string.Empty;
 
+
     public override string ToString()
     {
         return $"Id: {Id}, AuthToken: {AuthToken}";

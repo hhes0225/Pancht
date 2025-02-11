@@ -5,7 +5,7 @@ using Microsoft.Extensions.Options;
 
 namespace ApiGameServer.Repository;
 
-public class MemoryDb:IMemoryDb
+public class MemoryDb : IMemoryDb
 {
     readonly ILogger<MemoryDb> _logger;
     RedisConnection _redisConn;
@@ -39,7 +39,7 @@ public class MemoryDb:IMemoryDb
 
             RedisString<RedisDbData> redis = new(_redisConn, key, GetExpireTime());
 
-            if(await redis.SetAsync(authData, GetExpireTime()) == false)
+            if (await redis.SetAsync(authData, GetExpireTime()) == false)
             {
                 return ErrorCode.GameServerAuthTokenRegisterFail;
             }

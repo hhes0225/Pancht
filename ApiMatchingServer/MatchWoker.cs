@@ -8,46 +8,39 @@ using System.Reflection.Metadata.Ecma335;
 using CloudStructures;
 using CloudStructures.Structures;
 using System.Linq;
+using ApiMatchingServer.Repository;
+using Microsoft.Extensions.Logging;
+using ApiMatchingServer.Model;
 
-namespace APIServer;
+namespace ApiMatchingServer;
 
 public interface IMatchWoker : IDisposable
 {
-    public void AddUser(string userID);
-    //public void RemoveUser(string userID);
+    public void AddUserToWaitingQueue(UserMatchInfo userMatchInfo);
+    public void RemoveUserFromWaitingQueue(string userID);
 
     public (bool, CompleteMatchingData) GetCompleteMatching(string userID);
 }
 
 public class MatchWoker : IMatchWoker
 {
+    readonly ILogger<MatchWoker> _logger;
+    readonly IMemoryDb _memoryDb;
+
     List<string> _pvpServerAddressList = new();
 
     System.Threading.Thread _reqWorker = null;
     System.Threading.Thread _completeWorker = null;
 
-
-    ConcurrentQueue<string> _reqQueue = new();
+    ConcurrentQueue<UserMatchInfo> _waitingQueue = new();
     ConcurrentDictionary<string, string> _completeDic = new();// key는 유저ID
 
-    //TODO: 2개의 Pub/Sub을 사용하므로 Redis 객체가 2개 있어야 한다.
-    // 매칭서버에서 -> 게임서버, 게임서버 -> 매칭서버로
+    
 
-    string _redisAddress = "";
-    string _requestMatchingKey;
-    string _checkMatchingKey;
-
-    public RedisConnection RedisConn;
-
-    public MatchWoker(IOptions<MatchingConfig> matchingConfig)
+    public MatchWoker(ILogger<MatchWoker> logger, IMemoryDb memoryDb)
     {
-        Console.WriteLine("MatchWoker 생성자 호출");
-
-        _redisAddress = matchingConfig.Value.RedisAddress;
-
-        //TODO: Redis 연결 및 초기화 한다
-        RedisConfig redisConfig = new RedisConfig("default", matchingConfig.Value.RedisAddress);
-        RedisConn = new RedisConnection(redisConfig);
+        _logger = logger;
+        _memoryDb = memoryDb;
 
         _reqWorker = new System.Threading.Thread(this.RunMatching);
         _reqWorker.Start();
@@ -56,14 +49,19 @@ public class MatchWoker : IMatchWoker
         _completeWorker.Start();
     }
     
-    public void AddUser(string userID)
+    public void AddUserToWaitingQueue(UserMatchInfo userMatchInfo)
     {
-        _reqQueue.Enqueue(userID);
-        
-        foreach(var tmp in _reqQueue)
+        _waitingQueue.Enqueue(userMatchInfo);
+
+        foreach (var tmp in _waitingQueue)
         {
-            Console.WriteLine($"큐 안의 값 확인 : {tmp}");
+            Console.WriteLine($"큐 안의 값 확인 : {tmp.Id}, 티어: {tmp.TierScore}, 연승: {tmp.WinStreak}");
         }
+    }
+
+    public void RemoveUserFromWaitingQueue(string userID)
+    { 
+    
     }
 
     public (bool, CompleteMatchingData) GetCompleteMatching(string userID)
@@ -80,7 +78,7 @@ public class MatchWoker : IMatchWoker
             try
             {
 
-                if (_reqQueue.Count < 2)
+                if (_waitingQueue.Count < 2)
                 {
                     System.Threading.Thread.Sleep(1);
                     continue;
@@ -130,12 +128,4 @@ public class CompleteMatchingData
 {    
     public string ServerAddress { get; set; }
     public int RoomNumber { get; set; }
-}
-
-
-public class MatchingConfig
-{
-    public string RedisAddress { get; set; }
-    public string PubKey { get; set; }
-    public string SubKey { get; set; }
 }

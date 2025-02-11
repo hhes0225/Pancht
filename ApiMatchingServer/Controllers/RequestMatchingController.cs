@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using ZLogger;
 
 
-namespace APIServer.Controllers;
+namespace ApiMatchingServer.Controllers;
 
 [ApiController]
 [Route("[controller]")]
