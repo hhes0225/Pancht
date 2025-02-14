@@ -86,6 +86,8 @@ public class MemoryDb : IMemoryDb
 
     public TimeSpan GetExpireTime()
     {
+        //로그인 키 만료 시간
+        //6시간으로 설정되어 있음.
         return TimeSpan.FromHours(RedisKeyExpireTime.LoginKeyExpireHour);
     }
 }

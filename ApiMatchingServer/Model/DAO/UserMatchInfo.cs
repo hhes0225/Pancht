@@ -1,4 +1,4 @@
-﻿namespace ApiMatchingServer.Model;
+﻿namespace ApiMatchingServer.Model.DAO;
 
 public class UserMatchInfo
 {

@@ -10,14 +10,15 @@ using CloudStructures.Structures;
 using System.Linq;
 using ApiMatchingServer.Repository;
 using Microsoft.Extensions.Logging;
-using ApiMatchingServer.Model;
+using ApiMatchingServer.Model.DAO;
+using System.Threading.Tasks;
 
 namespace ApiMatchingServer;
 
 public interface IMatchWoker : IDisposable
 {
-    public void AddUserToWaitingQueue(UserMatchInfo userMatchInfo);
-    public void RemoveUserFromWaitingQueue(string userID);
+    public Task<ErrorCode> AddUserToWaitingQueue(UserMatchInfo userMatchInfo);
+    public Task<ErrorCode> RemoveUserFromWaitingQueue(string userID);
 
     public (bool, CompleteMatchingData) GetCompleteMatching(string userID);
 }
@@ -35,8 +36,6 @@ public class MatchWoker : IMatchWoker
     ConcurrentQueue<UserMatchInfo> _waitingQueue = new();
     ConcurrentDictionary<string, string> _completeDic = new();// key는 유저ID
 
-    
-
     public MatchWoker(ILogger<MatchWoker> logger, IMemoryDb memoryDb)
     {
         _logger = logger;
@@ -49,24 +48,34 @@ public class MatchWoker : IMatchWoker
         _completeWorker.Start();
     }
     
-    public void AddUserToWaitingQueue(UserMatchInfo userMatchInfo)
+    public async Task<ErrorCode> AddUserToWaitingQueue(UserMatchInfo userMatchInfo)
     {
         _waitingQueue.Enqueue(userMatchInfo);
+
+        var result = await _memoryDb.SetUserState(userMatchInfo.Id, UserState.Matching);
+
 
         foreach (var tmp in _waitingQueue)
         {
             Console.WriteLine($"큐 안의 값 확인 : {tmp.Id}, 티어: {tmp.TierScore}, 연승: {tmp.WinStreak}");
         }
+
+        return result;
     }
 
-    public void RemoveUserFromWaitingQueue(string userID)
+    public async Task<ErrorCode> RemoveUserFromWaitingQueue(string userID)
     { 
-    
+        return await _memoryDb.SetUserState(userID, UserState.None);
     }
 
     public (bool, CompleteMatchingData) GetCompleteMatching(string userID)
     {
         //TODO: _completeDic에서 검색해서 있으면 반환한다.
+        if( _completeDic.TryGetValue(userID, out var result))
+        {
+
+        }
+
 
         return (false, null);
     }

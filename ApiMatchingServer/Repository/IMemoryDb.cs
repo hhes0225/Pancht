@@ -1,4 +1,7 @@
-﻿namespace ApiMatchingServer.Repository;
+﻿using ApiMatchingServer.Model.DAO;
+using System.Threading.Tasks;
+
+namespace ApiMatchingServer.Repository;
 
 public interface IMemoryDb
 {
@@ -7,5 +10,8 @@ public interface IMemoryDb
     //유저 정보 해시에 넣기 - id, 승패정보, 유저상태 hash에 넣기
     //유저 정보 해시에서 빼기 - id, 승패정보, 유저상태 hash에서 빼기
     //매칭 정보 리스트에 넣기
+
+    public Task<(ErrorCode, UserState)> GetUserState(string id);
+    public Task<ErrorCode> SetUserState(string id, UserState state);
 
 }
