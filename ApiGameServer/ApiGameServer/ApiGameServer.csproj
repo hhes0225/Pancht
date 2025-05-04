@@ -16,4 +16,10 @@
     <PackageReference Include="SqlKata.Execution" Version="2.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="UserStateLibrary">
+      <HintPath>..\..\..\..\..\..\source\repos\UserStateLibrary\UserStateLibrary\bin\Debug\net8.0\UserStateLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

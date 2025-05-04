@@ -15,9 +15,11 @@ builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddScoped<ICharacterListService, CharacterListService>();
 builder.Services.AddScoped<IAttendanceService, AttendanceService>();
 
+
 //Repository DI(등록)
 builder.Services.AddScoped<IPanchtDb, PanchtDb>();
 builder.Services.AddSingleton<IMemoryDb, MemoryDb>();
+builder.Services.AddScoped<IUserStateDb, UserStateDb>();
 
 //Controller 등록
 builder.Services.AddControllers();
