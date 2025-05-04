@@ -10,12 +10,14 @@ public class MatchingService:IMatchingService
     readonly ILogger<MatchingService> _logger;
     readonly string _matchingServerAddress;
     readonly IPanchtDb _panchtDb;
+    readonly IUserStateDb _userStateDb;
 
-    public MatchingService(ILogger<MatchingService> logger, IConfiguration configuration, IPanchtDb panchtDb)
+    public MatchingService(ILogger<MatchingService> logger, IConfiguration configuration, IPanchtDb panchtDb, IUserStateDb userStateDb)
     {
         _logger = logger;
         _matchingServerAddress = configuration["MatchingServerUrl"];
         _panchtDb = panchtDb;
+        _userStateDb = userStateDb;
     }
 
     //매칭 요청 매칭 서버에 전달
@@ -49,11 +51,21 @@ public class MatchingService:IMatchingService
                 return response;
             }
 
+            //매칭 서버에서 응답
             response = await responseFromMatchingServer.Content.ReadFromJsonAsync<MatchingResponse>();
 
-            if(response.Result != ErrorCode.None)
+            if (response.Result != ErrorCode.None)
             {
                 _logger.LogError($"Matching Server Response Error: {response.Result}");
+                return response;
+            }
+
+            //매칭 성공 시 유저 상태 DB에 매칭 상태로 변경
+            var userStateResult = await _userStateDb.SetUserStateToMatchingAsync(request.Id);
+            if (userStateResult != ErrorCode.None)
+            {
+                _logger.LogError($"SetUserStateToMatching Fail: {userStateResult}");
+                response.Result = userStateResult;
                 return response;
             }
         }
