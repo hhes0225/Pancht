@@ -12,14 +12,16 @@ public class LoginService:ILoginService
     private readonly string _apiServerAddress;
     private readonly IPanchtDb _userDataDb;
     private readonly IMemoryDb _memoryDb;
+    private readonly IUserStateDb _userStateDb;
     readonly IAccountServerAuthHandler _accountServerHandler;
 
-    public LoginService(ILogger<LoginService> logger, IConfiguration configuration, IPanchtDb userDataDb, IMemoryDb memoryDb, IAccountServerAuthHandler accountServerHandler)
+    public LoginService(ILogger<LoginService> logger, IConfiguration configuration, IPanchtDb userDataDb, IMemoryDb memoryDb, IUserStateDb userStateDb,IAccountServerAuthHandler accountServerHandler)
     {
         _logger = logger;
         _apiServerAddress = configuration["AccountServerUrl"];
         _userDataDb = userDataDb;
         _memoryDb = memoryDb;
+        _userStateDb = userStateDb;
         _accountServerHandler = accountServerHandler;
     }
 
@@ -58,6 +60,15 @@ public class LoginService:ILoginService
             return loginResponse;
         }
 
+        //로그인 성공한 유저의 상태를 None으로 하여 Redis에 저장
+        var userStateInitResult = await _userStateDb.CreateUserStateAsync(request.Id);
+        if (userStateInitResult != ErrorCode.None)
+        {
+            loginResponse.Result = userStateInitResult;
+            return loginResponse;
+        }
+
+        //모든 과정이 성공적으로 끝났다면 로그인 성공
         loginResponse.Result = ErrorCode.None;
         loginResponse.UserGameData = userData.Item2;
 
