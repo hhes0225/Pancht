@@ -2,6 +2,7 @@
 using CloudStructures;
 using CloudStructures.Structures;
 using Microsoft.Extensions.Options;
+using UserStateLibrary;
 
 namespace ApiGameServer.Repository;
 
@@ -22,6 +23,14 @@ public class MemoryDb : IMemoryDb
     {
     }
 
+    //RedisString<RedisDbData>: key-value 쌍으로 Redis에 저장하는 구조체
+    //이때, value는 RedisDbData 구조체로 정의되어 있음.
+    //라이브러리 내부적으로 RedisDbData 구조체를 json으로 변환하여 Redis에 저장함.
+    private RedisString<RedisDbData> BuildRedisKey(string id)
+    {
+        return new RedisString<RedisDbData>(_redisConn, id, GetExpireTime());
+    }
+
     //id, 인증토큰 Redis에 등록
     public async Task<ErrorCode> SetAccessTokenAsync(string id, string authToken)
     {
@@ -35,11 +44,9 @@ public class MemoryDb : IMemoryDb
                 AuthToken = authToken
             };
 
-            string key = authData.Id;
+            var redisKey = BuildRedisKey(id);
 
-            RedisString<RedisDbData> redis = new(_redisConn, key, GetExpireTime());
-
-            if (await redis.SetAsync(authData, GetExpireTime()) == false)
+            if (await redisKey.SetAsync(authData, GetExpireTime()) == false)
             {
                 return ErrorCode.GameServerAuthTokenRegisterFail;
             }
@@ -58,8 +65,8 @@ public class MemoryDb : IMemoryDb
     {
         try
         {
-            RedisString<RedisDbData> redis = new RedisString<RedisDbData>(_redisConn, id, null);
-            RedisResult<RedisDbData> userAuthData = await redis.GetAsync();
+            var redisKey = BuildRedisKey(id);
+            RedisResult<RedisDbData> userAuthData = await redisKey.GetAsync();
 
             if (!userAuthData.HasValue)
             {
