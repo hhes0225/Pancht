@@ -25,7 +25,11 @@ public enum ErrorCode:UInt16
     AuthTokenInfoNotExist = 2204,
     AuthTokenIdNotMatch = 2205,
     AuthTokenTokenNotMatch = 2206,
-    
+    UserStateFailException = 2207,
+    UserStateCreateFail = 2208,
+    UserStateChangeFail = 2209,
+
+
     //Account DB Error 처리: 3000~
     AccountDbFailException = 3001,
     AccountDbConnectionFail = 3002,
