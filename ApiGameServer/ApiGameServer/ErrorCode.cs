@@ -66,5 +66,7 @@ public enum ErrorCode:UInt16
     GameMatchingWaiting = 5002,
     GameMatchingCheckFail = 5003,
     GameMatchingCancelFail = 5004,
+    GameResultNotExist = 5005,
+    GameResultAccessFail = 5006,
 
 }
