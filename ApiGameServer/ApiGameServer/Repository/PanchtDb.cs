@@ -244,6 +244,39 @@ public class PanchtDb:IPanchtDb
         }
     }
 
+    public async Task<(ErrorCode, GameResult)> GetLastGameResultAsync(string id)
+    {
+        try
+        { 
+            //존재하는 유저인지 확인
+            var user = GetUserDataAsync(id);
+
+            if(user.Result.Item1 != ErrorCode.None)
+            {
+                return (ErrorCode.GameDataLoadException, GameResult.None);
+            }
+
+            //게임 매칭 히스토리 존재하는지 확인
+            var gameResult = await _queryFactory.
+                Query("MatchingHistory").
+                OrderByDesc("match_date").
+                Where("user_id", user.Result.Item2.uid).
+                FirstOrDefaultAsync<MatchingHistoryData>();
+
+            if(gameResult == null)
+            {
+                return (ErrorCode.None, GameResult.None);
+            }
+
+            return (ErrorCode.None, gameResult.result);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "GetGameResult Error");
+            return (ErrorCode.GameDataLoadException, GameResult.None);
+        }
+    }
+
     private void Open()
     {
         _dbConnection = new MySqlConnection(_dbConfig.Value.MySqlPanchtDb);

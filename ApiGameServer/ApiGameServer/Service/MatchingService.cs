@@ -40,6 +40,18 @@ public class MatchingService:IMatchingService
             
             request.TierScore = tierResult.Item2;
 
+            //마지막 플레이 기록 조회 + 게임 결과를 매칭 요청에 추가
+            var lastGameResult = await _panchtDb.GetLastGameResultAsync(request.Id);
+
+            if(lastGameResult.Item1 != ErrorCode.None)
+            {
+                _logger.LogError($"GetLastGameResult Fail: {lastGameResult.Item1}");
+                response.Result = lastGameResult.Item1;
+                return response;
+            }
+
+            request.LastGameResult = lastGameResult.Item2;
+
             //매칭 서버로 요청
             HttpClient client = new HttpClient();
             var responseFromMatchingServer = await client.PostAsJsonAsync($"{_matchingServerAddress}/RequestMatching", request);

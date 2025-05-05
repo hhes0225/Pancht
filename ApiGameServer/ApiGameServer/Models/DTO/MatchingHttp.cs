@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ApiGameServer.Models.DAO;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApiGameServer.Models.DTO;
 
@@ -13,6 +14,8 @@ public class MatchingRequest
     public string Id { get; set; } = string.Empty;
     [Required]
     public int TierScore { get; set; } = 0;
+    [Required]
+    public GameResult LastGameResult { get; set; } = GameResult.None;
 }
 
 public class MatchingResponse

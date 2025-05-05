@@ -14,4 +14,5 @@ public interface IPanchtDb
 
     //매칭을 위한 유저 데이터 조회
     public Task<(ErrorCode, int)> GetUserTierScoreAsync(string id);
+    public Task<(ErrorCode, GameResult)> GetLastGameResultAsync(string id);
 }
