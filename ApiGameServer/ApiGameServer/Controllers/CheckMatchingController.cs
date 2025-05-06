@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiGameServer.Controllers;
 
+[ApiController]
+[Route("[controller]")]
 public class CheckMatchingController : Controller
 {
     ILogger<CheckMatchingController> _logger;
