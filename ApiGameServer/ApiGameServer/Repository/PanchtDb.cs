@@ -6,7 +6,7 @@ using ApiGameServer.Models.DAO;
 
 namespace ApiGameServer.Repository;
 
-public class PanchtDb:IPanchtDb
+public class PanchtDb:IPanchtDb, IDisposable
 {
     ILogger<PanchtDb> _logger;
     readonly IOptions<DbConfig> _dbConfig;
@@ -23,6 +23,11 @@ public class PanchtDb:IPanchtDb
 
         _compiler = new SqlKata.Compilers.MySqlCompiler();
         _queryFactory = new QueryFactory(_dbConnection, _compiler);
+    }
+
+    public void Dispose()
+    {
+        Close();
     }
 
     //유저 데이터 생성
