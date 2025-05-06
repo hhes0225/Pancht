@@ -37,7 +37,7 @@ public static class TierInfo
     public static readonly List<Tier> TierList = new List<Tier>
     {
         new Tier(TierType.None, Int32.MinValue, 0),
-        new Tier(TierType.Bronze1, 1, 100),//0~100?
+        new Tier(TierType.Bronze1, 0, 100),//0~100?
         new Tier(TierType.Bronze2, 101, 200),
         new Tier(TierType.Bronze3, 201, 350),
         new Tier(TierType.Silver1, 351, 450),
