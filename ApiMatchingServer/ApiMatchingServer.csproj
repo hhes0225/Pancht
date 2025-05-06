@@ -27,5 +27,11 @@
         <Compile Remove="MasterData.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="UserStateLibrary">
+        <HintPath>..\..\..\..\..\source\repos\UserStateLibrary\UserStateLibrary\bin\Debug\net8.0\UserStateLibrary.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 
 </Project>
