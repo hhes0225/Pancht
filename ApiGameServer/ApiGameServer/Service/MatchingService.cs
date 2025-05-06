@@ -52,6 +52,8 @@ public class MatchingService:IMatchingService
 
             request.LastGameResult = lastGameResult.Item2;
 
+            _logger.LogInformation($"Request Matching: {request.Id} - {request.TierScore} - {request.LastGameResult}");
+
             //매칭 서버로 요청
             HttpClient client = new HttpClient();
             var responseFromMatchingServer = await client.PostAsJsonAsync($"{_matchingServerAddress}/RequestMatching", request);
@@ -63,7 +65,7 @@ public class MatchingService:IMatchingService
                 return response;
             }
 
-            //매칭 서버에서 응답
+            //매칭 서버에서의 응답을 클라이언트로 전달
             response = await responseFromMatchingServer.Content.ReadFromJsonAsync<MatchingResponse>();
 
             if (response.Result != ErrorCode.None)
