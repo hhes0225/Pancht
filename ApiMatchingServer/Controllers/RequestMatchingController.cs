@@ -7,7 +7,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Threading.Tasks;
+using ApiMatchingServer.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ZLogger;
@@ -17,21 +19,26 @@ namespace ApiMatchingServer.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class RequestMatching : ControllerBase
+public class RequestMatchingController : ControllerBase
 {
     IMatchWoker _matchWorker;
+    ILogger<RequestMatchingController> _logger;
 
-    public RequestMatching(IMatchWoker matchWorker)
+    public RequestMatchingController(IMatchWoker matchWorker, ILogger<RequestMatchingController> logger)
     {
         _matchWorker = matchWorker;
+        _logger = logger;
     }
 
     [HttpPost]
-    public MatchResponse Post(MatchingRequest request)
+    public MatchingResponse Post(MatchingRequest request)
     {
-        MatchResponse response = new();
+        //MatchingRequest 출력
+        _logger.LogInformation("MatchingRequest received: {UserID}, {TierScore}, {LastGameResult}", request.UserID, request.TierScore, request.LastGameResult);
 
-        _matchWorker.AddUser(request.UserID);
+        MatchingResponse response = new();
+
+        //_matchWorker.AddUserToWaitingQueue(request.UserID);
 
         return response;
     }
