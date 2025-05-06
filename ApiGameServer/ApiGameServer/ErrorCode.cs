@@ -29,7 +29,6 @@ public enum ErrorCode:UInt16
     UserStateCreateFail = 2208,
     UserStateChangeFail = 2209,
 
-
     //Account DB Error 처리: 3000~
     AccountDbFailException = 3001,
     AccountDbConnectionFail = 3002,
@@ -69,4 +68,7 @@ public enum ErrorCode:UInt16
     GameResultNotExist = 5005,
     GameResultAccessFail = 5006,
 
+    //Matching Server 측 관련 Error 5100~
+    MatchingFailError = 5102,
+    MatchingNotYet = 5103,
 }
