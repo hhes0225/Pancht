@@ -13,7 +13,7 @@ public enum ErrorCode : UInt16
     MatchingServerUserStateNotExist = 3301,
     MatchingServerUserStateSetFail = 3302,
 
-    //Matching 관련 Error 6000~
-    MatchingFailError = 6002,
-    MatchingNotYet = 6003,
+    //Matching Server 측 관련 Error: 5100~
+    MatchingFailError = 5102,
+    MatchingNotYet = 5103,
 }
