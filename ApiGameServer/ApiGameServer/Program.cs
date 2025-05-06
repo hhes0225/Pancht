@@ -14,6 +14,7 @@ builder.Services.AddScoped<IAccountServerAuthHandler, AccountServerAuthHandler>(
 builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddScoped<ICharacterListService, CharacterListService>();
 builder.Services.AddScoped<IAttendanceService, AttendanceService>();
+builder.Services.AddScoped<IMatchingService, MatchingService>();
 
 
 //Repository DI(µî·Ï)
