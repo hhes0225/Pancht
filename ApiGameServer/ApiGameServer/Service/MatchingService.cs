@@ -100,7 +100,9 @@ public class MatchingService:IMatchingService
         try
         {
             HttpClient client = new HttpClient();
-            var responseFromMatchingServer = await client.PostAsJsonAsync($"{_matchingServerAddress}/Matching", request);
+
+            _logger.LogInformation($"Check Matching: {request.Id}");
+            var responseFromMatchingServer = await client.PostAsJsonAsync($"{_matchingServerAddress}/CheckMatching", request);
 
             if (!responseFromMatchingServer.IsSuccessStatusCode)
             {
