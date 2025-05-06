@@ -20,7 +20,7 @@ public class MatchingRequest
 
 public class MatchingResponse
 {
-    public ErrorCode Result { get; set; } = ErrorCode.None;
+    public ErrorCode Result { get; set; }
 }
 
 public class CancelMatchingRequest
@@ -31,7 +31,7 @@ public class CancelMatchingRequest
 
 public class CancelMatchingResponse
 {
-    public ErrorCode Result { get; set; } = ErrorCode.None;
+    public ErrorCode Result { get; set; }
 }
 
 public class CheckMatchingRequest
@@ -42,7 +42,7 @@ public class CheckMatchingRequest
 
 public class CheckMatchingResponse
 {
-    public ErrorCode Result { get; set; } = ErrorCode.None;
+    public ErrorCode Result { get; set; }
     public string? SocketServerAddress { get; set; } = string.Empty;
     public int Port { get; set; } = 0;
     public int RoomNumber { get; set; } = 0;
