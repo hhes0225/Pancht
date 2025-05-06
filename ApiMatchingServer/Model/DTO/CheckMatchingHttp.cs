@@ -5,7 +5,7 @@ namespace ApiMatchingServer.Models.DTO;
 
 public class CheckMatchingReq
 {
-    public string UserID { get; set; }
+    public string Id { get; set; }
 }
 
 

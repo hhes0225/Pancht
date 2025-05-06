@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using UserStateLibrary;
 
 namespace ApiMatchingServer.Repository;
 

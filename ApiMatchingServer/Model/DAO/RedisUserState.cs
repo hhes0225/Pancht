@@ -1,4 +1,5 @@
 ﻿namespace ApiMatchingServer.Model.DAO;
+using UserStateLibrary;
 
 public class RedisUserState
 {

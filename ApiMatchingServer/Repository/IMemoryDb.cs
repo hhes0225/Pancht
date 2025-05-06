@@ -1,5 +1,6 @@
 ﻿using ApiMatchingServer.Model.DAO;
 using System.Threading.Tasks;
+using UserStateLibrary;
 
 namespace ApiMatchingServer.Repository;
 
